@@ -13,5 +13,6 @@ RUN sudo apt-get update \
    libxtst6 \
    xauth \
    xvfb \
+   python2.7 \
  && sudo rm -rf /var/lib/apt/lists/*
  
