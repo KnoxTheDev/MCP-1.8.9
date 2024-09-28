@@ -1,0 +1,1 @@
+bash: dialog: command not found

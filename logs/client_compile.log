@@ -1,0 +1,193 @@
+src/minecraft/net/minecraft/network/NetHandlerPlayServer.java:445: error: incompatible types: Set<Object> cannot be converted to Set<EnumFlags>
+        this.setPlayerLocation(x, y, z, yaw, pitch, Collections.emptySet());
+                                                                        ^
+src/minecraft/net/minecraft/tileentity/TileEntity.java:108: warning: [deprecation] newInstance() in Class has been deprecated
+                tileentity = (TileEntity)oclass.newInstance();
+                                               ^
+  where T is a type-variable:
+    T extends Object declared in class Class
+src/minecraft/net/minecraft/inventory/Container.java:39: error: incompatible types: Object cannot be converted to ItemStack
+        this.inventoryItemStacks.add((Object)null);
+                                     ^
+src/minecraft/net/minecraft/network/NetworkSystem.java:78: error: incompatible types: List<Object> cannot be converted to List<ChannelFuture>
+    private final List<ChannelFuture> endpoints = Collections.synchronizedList(Lists.newArrayList());
+                                                                              ^
+src/minecraft/net/minecraft/network/NetworkSystem.java:79: error: incompatible types: List<Object> cannot be converted to List<NetworkManager>
+    private final List<NetworkManager> networkManagers = Collections.synchronizedList(Lists.newArrayList());
+                                                                                     ^
+src/minecraft/net/minecraft/network/EnumConnectionState.java:291: warning: [deprecation] newInstance() in Class has been deprecated
+        return oclass == null ? null : (Packet)oclass.newInstance();
+                                                     ^
+  where T is a type-variable:
+    T extends Object declared in class Class
+src/minecraft/net/minecraft/network/EnumConnectionState.java:332: warning: [deprecation] newInstance() in Class has been deprecated
+                        oclass.newInstance();
+                              ^
+  where T is a type-variable:
+    T extends Object declared in class Class
+src/minecraft/net/minecraft/util/ObjectIntIdentityMap.java:21: error: incompatible types: Object cannot be converted to T
+            this.objectList.add((Object)null);
+                                ^
+  where T is a type-variable:
+    T extends Object declared in class ObjectIntIdentityMap
+src/minecraft/net/minecraft/util/Cartesian.java:56: error: incompatible types: List<Object> cannot be converted to List<T>
+            return Arrays.asList((Object[])p_apply_1_);
+                                ^
+  where T is a type-variable:
+    T extends Object declared in class GetList
+src/minecraft/net/minecraft/client/Minecraft.java:811: error: incompatible types: List<Object> cannot be converted to List<ResourcePackRepository.Entry>
+            this.mcResourcePackRepository.setRepositories(Collections.emptyList());
+                                                                               ^
+src/minecraft/net/minecraft/client/renderer/texture/TextureAtlasSprite.java:382: error: incompatible types: Object cannot be converted to int[][]
+                this.framesTextureData.add((Object)null);
+                                           ^
+src/minecraft/net/minecraft/world/gen/FlatGeneratorInfo.java:300: error: incompatible types: HashMap<Object,Object> cannot be converted to Map<String,String>
+                        flatgeneratorinfo.getWorldFeatures().put("village", Maps.newHashMap());
+                                                                                           ^
+src/minecraft/net/minecraft/world/gen/FlatGeneratorInfo.java:325: error: incompatible types: HashMap<Object,Object> cannot be converted to Map<String,String>
+        flatgeneratorinfo.getWorldFeatures().put("village", Maps.newHashMap());
+                                                                           ^
+src/minecraft/net/minecraft/world/gen/structure/MapGenStructureIO.java:50: warning: [deprecation] newInstance() in Class has been deprecated
+                structurestart = (StructureStart)oclass.newInstance();
+                                                       ^
+  where T is a type-variable:
+    T extends Object declared in class Class
+src/minecraft/net/minecraft/world/gen/structure/MapGenStructureIO.java:81: warning: [deprecation] newInstance() in Class has been deprecated
+                structurecomponent = (StructureComponent)oclass.newInstance();
+                                                               ^
+  where T is a type-variable:
+    T extends Object declared in class Class
+src/minecraft/net/minecraft/world/gen/structure/StructureMineshaftPieces.java:611: error: cannot find symbol
+            for (lvt_5_1_ = 0; k < this.boundingBox.getXSize(); k = k + 4)
+                 ^
+  symbol:   variable lvt_5_1_
+  location: class Room
+src/minecraft/net/minecraft/world/storage/ThreadedFileIOBase.java:11: error: incompatible types: List<Object> cannot be converted to List<IThreadedFileIO>
+    private List<IThreadedFileIO> threadedIOQueue = Collections.synchronizedList(Lists.newArrayList());
+                                                                                ^
+src/minecraft/net/minecraft/entity/item/EntityMinecart.java:97: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(17, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityMinecart.java:98: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(18, new Integer(1));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityMinecart.java:99: warning: [deprecation] Float(float) in Float has been deprecated
+        this.dataWatcher.addObject(19, new Float(0.0F));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityMinecart.java:100: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(20, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityMinecart.java:101: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(21, new Integer(6));
+                                       ^
+src/minecraft/net/minecraft/block/BlockRedstoneTorch.java:27: error: incompatible types: ArrayList<Object> cannot be converted to List<Toggle>
+            toggles.put(worldIn, Lists.newArrayList());
+                                                   ^
+src/minecraft/net/minecraft/block/state/pattern/FactoryBlockPattern.java:26: error: incompatible types: Predicate<Object> cannot be converted to Predicate<BlockWorldState>
+        this.symbolMap.put(' ', Predicates.alwaysTrue());
+                                                     ^
+src/minecraft/net/minecraft/block/state/pattern/FactoryBlockPattern.java:56: error: incompatible types: Object cannot be converted to Predicate<BlockWorldState>
+                            this.symbolMap.put(Character.valueOf(c0), (Object)null);
+                                                                      ^
+src/minecraft/net/minecraft/realms/RealmsServerStatusPinger.java:28: error: incompatible types: List<Object> cannot be converted to List<NetworkManager>
+    private final List<NetworkManager> connections = Collections.synchronizedList(Lists.newArrayList());
+                                                                                 ^
+src/minecraft/net/minecraft/client/gui/GuiScreenRealmsProxy.java:18: error: incompatible types: List<Object> cannot be converted to List<GuiButton>
+        super.buttonList = Collections.synchronizedList(Lists.newArrayList());
+                                                       ^
+src/minecraft/net/minecraft/client/resources/FolderResourcePack.java:36: error: reference to listFiles is ambiguous
+            for (File file2 : file1.listFiles(DirectoryFileFilter.DIRECTORY))
+                                   ^
+  both method listFiles(FilenameFilter) in File and method listFiles(FileFilter) in File match
+src/minecraft/net/minecraft/client/resources/FileResourcePack.java:108: warning: [deprecation] finalize() in Object has been deprecated
+    protected void finalize() throws Throwable
+                   ^
+src/minecraft/net/minecraft/client/resources/FileResourcePack.java:111: warning: [deprecation] finalize() in Object has been deprecated
+        super.finalize();
+             ^
+src/minecraft/net/minecraft/client/resources/FallbackResourceManager.java:122: warning: [deprecation] finalize() in Object has been deprecated
+        protected void finalize() throws Throwable
+                       ^
+src/minecraft/net/minecraft/client/resources/FallbackResourceManager.java:129: warning: [deprecation] finalize() in Object has been deprecated
+            super.finalize();
+                 ^
+src/minecraft/net/minecraft/client/renderer/block/model/ModelBlock.java:55: error: incompatible types: List<Object> cannot be converted to List<BlockPart>
+        this(parentLocationIn, Collections.emptyList(), texturesIn, ambientOcclusionIn, gui3dIn, cameraTransformsIn);
+                                                    ^
+src/minecraft/net/minecraft/client/resources/model/SimpleBakedModel.java:116: error: incompatible types: ArrayList<Object> cannot be converted to List<BakedQuad>
+                this.builderFaceQuads.add(Lists.newArrayList());
+                                                            ^
+src/minecraft/net/minecraft/client/network/OldServerPinger.java:50: error: incompatible types: List<Object> cannot be converted to List<NetworkManager>
+    private final List<NetworkManager> pingDestinations = Collections.synchronizedList(Lists.newArrayList());
+                                                                                      ^
+src/minecraft/net/minecraft/client/gui/GuiFlatPresets.java:176: error: incompatible types: HashMap<Object,Object> cannot be converted to Map<String,String>
+                flatgeneratorinfo.getWorldFeatures().put(s, Maps.newHashMap());
+                                                                           ^
+src/minecraft/net/minecraft/entity/monster/EntitySpider.java:67: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/passive/EntityBat.java:29: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/passive/EntitySheep.java:111: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/passive/EntityWolf.java:131: warning: [deprecation] Float(float) in Float has been deprecated
+        this.dataWatcher.addObject(18, new Float(this.getHealth()));
+                                       ^
+src/minecraft/net/minecraft/entity/passive/EntityWolf.java:132: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(19, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/passive/EntityWolf.java:133: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(20, new Byte((byte)EnumDyeColor.RED.getMetadata()));
+                                       ^
+src/minecraft/net/minecraft/entity/boss/EntityWither.java:79: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(17, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/boss/EntityWither.java:80: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(18, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/boss/EntityWither.java:81: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(19, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/boss/EntityWither.java:82: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(20, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/monster/EntityEnderman.java:84: warning: [deprecation] Short(short) in Short has been deprecated
+        this.dataWatcher.addObject(16, new Short((short)0));
+                                       ^
+src/minecraft/net/minecraft/entity/monster/EntityEnderman.java:85: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(17, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/monster/EntityEnderman.java:86: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(18, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/monster/EntitySkeleton.java:76: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(13, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityBoat.java:56: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(17, new Integer(0));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityBoat.java:57: warning: [deprecation] Integer(int) in Integer has been deprecated
+        this.dataWatcher.addObject(18, new Integer(1));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityBoat.java:58: warning: [deprecation] Float(float) in Float has been deprecated
+        this.dataWatcher.addObject(19, new Float(0.0F));
+                                       ^
+src/minecraft/net/minecraft/entity/monster/EntityBlaze.java:55: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/item/EntityMinecartFurnace.java:41: warning: [deprecation] Byte(byte) in Byte has been deprecated
+        this.dataWatcher.addObject(16, new Byte((byte)0));
+                                       ^
+src/minecraft/net/minecraft/entity/ai/attributes/ModifiableAttributeInstance.java:33: error: incompatible types: HashSet<Object> cannot be converted to Set<AttributeModifier>
+            this.mapByOperation.put(Integer.valueOf(i), Sets.newHashSet());
+                                                                       ^
+src/minecraft/net/minecraft/command/CommandSpreadPlayers.java:138: error: incompatible types: Object cannot be converted to Team
+                set.add((Object)null);
+                        ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+24 errors
+33 warnings
