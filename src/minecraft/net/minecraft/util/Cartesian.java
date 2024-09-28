@@ -25,7 +25,7 @@ public class Cartesian
 
     private static <T> Iterable<List<T>> arraysAsLists(Iterable<Object[]> arrays)
     {
-        return Iterables.transform(arrays, new Cartesian.GetList());
+        return Iterables.transform(arrays, new Cartesian.GetList<T>()); // Specify T here
     }
 
     private static <T> T[] toArray(Class<? super T> clazz, Iterable<? extends T> it)
@@ -53,7 +53,11 @@ public class Cartesian
 
         public List<T> apply(Object[] p_apply_1_)
         {
-            return Arrays.asList((Object[])p_apply_1_);
+            List<T> resultList = Lists.newArrayList();
+            for (Object obj : p_apply_1_) {
+                resultList.add((T) obj); // Cast each object to T
+            }
+            return resultList;
         }
     }
 

@@ -2,7 +2,6 @@ package net.minecraft.block.state.pattern;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import java.lang.reflect.Array;
@@ -23,7 +22,13 @@ public class FactoryBlockPattern
 
     private FactoryBlockPattern()
     {
-        this.symbolMap.put(' ', Predicates.alwaysTrue());
+        // Use an anonymous inner class for the always-true predicate
+        this.symbolMap.put(' ', new Predicate<BlockWorldState>() {
+            @Override
+            public boolean apply(BlockWorldState input) {
+                return true; // Always return true
+            }
+        });
     }
 
     public FactoryBlockPattern aisle(String... aisle)
@@ -53,7 +58,8 @@ public class FactoryBlockPattern
                     {
                         if (!this.symbolMap.containsKey(Character.valueOf(c0)))
                         {
-                            this.symbolMap.put(Character.valueOf(c0), (Object)null);
+                            // Keep the null assignment for unmatched symbols
+                            this.symbolMap.put(Character.valueOf(c0), null);
                         }
                     }
                 }

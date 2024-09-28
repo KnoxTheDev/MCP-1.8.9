@@ -99,39 +99,34 @@ public class FallbackResourceManager implements IResourceManager
         return new ResourceLocation(location.getResourceDomain(), location.getResourcePath() + ".mcmeta");
     }
 
-    static class InputStreamLeakedResourceLogger extends InputStream
+    static class InputStreamLeakedResourceLogger extends InputStream implements AutoCloseable
     {
         private final InputStream inputStream;
         private final String message;
         private boolean isClosed = false;
-
+    
         public InputStreamLeakedResourceLogger(InputStream p_i46093_1_, ResourceLocation location, String resourcePack)
         {
             this.inputStream = p_i46093_1_;
             ByteArrayOutputStream bytearrayoutputstream = new ByteArrayOutputStream();
             (new Exception()).printStackTrace(new PrintStream(bytearrayoutputstream));
-            this.message = "Leaked resource: \'" + location + "\' loaded from pack: \'" + resourcePack + "\'\n" + bytearrayoutputstream.toString();
+            this.message = "Leaked resource: '" + location + "' loaded from pack: '" + resourcePack + "'\n" + bytearrayoutputstream.toString();
         }
-
+    
+        @Override
         public void close() throws IOException
-        {
-            this.inputStream.close();
-            this.isClosed = true;
-        }
-
-        protected void finalize() throws Throwable
         {
             if (!this.isClosed)
             {
-                FallbackResourceManager.logger.warn(this.message);
+                this.inputStream.close();
+                this.isClosed = true;
             }
-
-            super.finalize();
         }
-
+    
+        @Override
         public int read() throws IOException
         {
             return this.inputStream.read();
         }
-    }
+    }    
 }

@@ -105,12 +105,9 @@ public class FileResourcePack extends AbstractResourcePack implements Closeable
         return set;
     }
 
-    protected void finalize() throws Throwable
-    {
-        this.close();
-        super.finalize();
-    }
+    // Removed finalize() method
 
+    @Override
     public void close() throws IOException
     {
         if (this.resourcePackZipFile != null)

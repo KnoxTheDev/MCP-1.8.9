@@ -600,86 +600,87 @@ public class StructureMineshaftPieces
         {
             int i = this.getComponentType();
             int j = this.boundingBox.getYSize() - 3 - 1;
-
+        
             if (j <= 0)
             {
                 j = 1;
             }
-
-            int k;
-
-            for (lvt_5_1_ = 0; k < this.boundingBox.getXSize(); k = k + 4)
+        
+            int k; // Declare k here
+            int lvt_5_1_ = 0; // Declare lvt_5_1_ here (if needed for other purposes)
+        
+            for (k = 0; k < this.boundingBox.getXSize(); k = k + 4)
             {
                 k = k + rand.nextInt(this.boundingBox.getXSize());
-
+        
                 if (k + 3 > this.boundingBox.getXSize())
                 {
                     break;
                 }
-
+        
                 StructureComponent structurecomponent = StructureMineshaftPieces.func_175890_b(componentIn, listIn, rand, this.boundingBox.minX + k, this.boundingBox.minY + rand.nextInt(j) + 1, this.boundingBox.minZ - 1, EnumFacing.NORTH, i);
-
+        
                 if (structurecomponent != null)
                 {
                     StructureBoundingBox structureboundingbox = structurecomponent.getBoundingBox();
                     this.roomsLinkedToTheRoom.add(new StructureBoundingBox(structureboundingbox.minX, structureboundingbox.minY, this.boundingBox.minZ, structureboundingbox.maxX, structureboundingbox.maxY, this.boundingBox.minZ + 1));
                 }
             }
-
+        
             for (k = 0; k < this.boundingBox.getXSize(); k = k + 4)
             {
                 k = k + rand.nextInt(this.boundingBox.getXSize());
-
+        
                 if (k + 3 > this.boundingBox.getXSize())
                 {
                     break;
                 }
-
+        
                 StructureComponent structurecomponent1 = StructureMineshaftPieces.func_175890_b(componentIn, listIn, rand, this.boundingBox.minX + k, this.boundingBox.minY + rand.nextInt(j) + 1, this.boundingBox.maxZ + 1, EnumFacing.SOUTH, i);
-
+        
                 if (structurecomponent1 != null)
                 {
                     StructureBoundingBox structureboundingbox1 = structurecomponent1.getBoundingBox();
                     this.roomsLinkedToTheRoom.add(new StructureBoundingBox(structureboundingbox1.minX, structureboundingbox1.minY, this.boundingBox.maxZ - 1, structureboundingbox1.maxX, structureboundingbox1.maxY, this.boundingBox.maxZ));
                 }
             }
-
+        
             for (k = 0; k < this.boundingBox.getZSize(); k = k + 4)
             {
                 k = k + rand.nextInt(this.boundingBox.getZSize());
-
+        
                 if (k + 3 > this.boundingBox.getZSize())
                 {
                     break;
                 }
-
+        
                 StructureComponent structurecomponent2 = StructureMineshaftPieces.func_175890_b(componentIn, listIn, rand, this.boundingBox.minX - 1, this.boundingBox.minY + rand.nextInt(j) + 1, this.boundingBox.minZ + k, EnumFacing.WEST, i);
-
+        
                 if (structurecomponent2 != null)
                 {
                     StructureBoundingBox structureboundingbox2 = structurecomponent2.getBoundingBox();
                     this.roomsLinkedToTheRoom.add(new StructureBoundingBox(this.boundingBox.minX, structureboundingbox2.minY, structureboundingbox2.minZ, this.boundingBox.minX + 1, structureboundingbox2.maxY, structureboundingbox2.maxZ));
                 }
             }
-
+        
             for (k = 0; k < this.boundingBox.getZSize(); k = k + 4)
             {
                 k = k + rand.nextInt(this.boundingBox.getZSize());
-
+        
                 if (k + 3 > this.boundingBox.getZSize())
                 {
                     break;
                 }
-
+        
                 StructureComponent structurecomponent3 = StructureMineshaftPieces.func_175890_b(componentIn, listIn, rand, this.boundingBox.maxX + 1, this.boundingBox.minY + rand.nextInt(j) + 1, this.boundingBox.minZ + k, EnumFacing.EAST, i);
-
+        
                 if (structurecomponent3 != null)
                 {
                     StructureBoundingBox structureboundingbox3 = structurecomponent3.getBoundingBox();
                     this.roomsLinkedToTheRoom.add(new StructureBoundingBox(this.boundingBox.maxX - 1, structureboundingbox3.minY, structureboundingbox3.minZ, this.boundingBox.maxX, structureboundingbox3.maxY, structureboundingbox3.maxZ));
                 }
             }
-        }
+        }        
 
         public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn)
         {

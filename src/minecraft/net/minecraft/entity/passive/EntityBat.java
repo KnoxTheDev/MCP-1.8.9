@@ -23,10 +23,9 @@ public class EntityBat extends EntityAmbientCreature
         this.setIsBatHanging(true);
     }
 
-    protected void entityInit()
-    {
+    protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(16, new Byte((byte)0));
+        this.dataWatcher.addObject(16, Byte.valueOf((byte)0));
     }
 
     /**
@@ -96,17 +95,12 @@ public class EntityBat extends EntityAmbientCreature
         return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
     }
 
-    public void setIsBatHanging(boolean isHanging)
-    {
+    public void setIsBatHanging(boolean isHanging) {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
-
-        if (isHanging)
-        {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 1)));
-        }
-        else
-        {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -2)));
+        if (isHanging) {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 | 1)));
+        } else {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -2)));
         }
     }
 
@@ -233,8 +227,7 @@ public class EntityBat extends EntityAmbientCreature
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
-    public void readEntityFromNBT(NBTTagCompound tagCompund)
-    {
+    public void readEntityFromNBT(NBTTagCompound tagCompund) {
         super.readEntityFromNBT(tagCompund);
         this.dataWatcher.updateObject(16, Byte.valueOf(tagCompund.getByte("BatFlags")));
     }

@@ -32,13 +32,12 @@ public abstract class Container
     /**
      * Adds an item slot to this container
      */
-    protected Slot addSlotToContainer(Slot slotIn)
-    {
+    protected Slot addSlotToContainer(Slot slotIn) {
         slotIn.slotNumber = this.inventorySlots.size();
         this.inventorySlots.add(slotIn);
-        this.inventoryItemStacks.add((Object)null);
+        this.inventoryItemStacks.add(null); // Add null directly without casting
         return slotIn;
-    }
+    }    
 
     public void onCraftGuiOpened(ICrafting listener)
     {

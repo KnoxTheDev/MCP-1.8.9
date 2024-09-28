@@ -113,7 +113,7 @@ public class SimpleBakedModel implements IBakedModel
 
             for (EnumFacing enumfacing : EnumFacing.values())
             {
-                this.builderFaceQuads.add(Lists.newArrayList());
+                this.builderFaceQuads.add(Lists.<BakedQuad>newArrayList());
             }
 
             this.builderAmbientOcclusion = ambientOcclusion;

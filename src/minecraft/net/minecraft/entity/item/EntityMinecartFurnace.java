@@ -38,8 +38,8 @@ public class EntityMinecartFurnace extends EntityMinecart
     protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.addObject(16, new Byte((byte)0));
-    }
+        this.dataWatcher.addObject(16, Byte.valueOf((byte)0)); // Fixed line
+    }    
 
     /**
      * Called to update the entity's position/logic.

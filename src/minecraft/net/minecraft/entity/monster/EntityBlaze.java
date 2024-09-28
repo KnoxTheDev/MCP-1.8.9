@@ -52,8 +52,8 @@ public class EntityBlaze extends EntityMob
     protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.addObject(16, new Byte((byte)0));
-    }
+        this.dataWatcher.addObject(16, Byte.valueOf((byte)0)); // Fixed line
+    }    
 
     /**
      * Returns the sound this mob makes while it's alive.

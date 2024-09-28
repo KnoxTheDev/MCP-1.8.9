@@ -379,10 +379,10 @@ public class TextureAtlasSprite
         {
             for (int i = this.framesTextureData.size(); i <= index; ++i)
             {
-                this.framesTextureData.add((Object)null);
+                this.framesTextureData.add(null); // Corrected this line
             }
         }
-    }
+    }    
 
     private static int[][] getFrameTextureData(int[][] data, int rows, int columns, int p_147962_3_)
     {

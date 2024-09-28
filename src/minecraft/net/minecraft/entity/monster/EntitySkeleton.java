@@ -73,8 +73,8 @@ public class EntitySkeleton extends EntityMob implements IRangedAttackMob
     protected void entityInit()
     {
         super.entityInit();
-        this.dataWatcher.addObject(13, new Byte((byte)0));
-    }
+        this.dataWatcher.addObject(13, (byte)0);  // Updated line
+    }    
 
     /**
      * Returns the sound this mob makes while it's alive.

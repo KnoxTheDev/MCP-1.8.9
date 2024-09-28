@@ -788,17 +788,17 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     public void refreshResources()
     {
         List<IResourcePack> list = Lists.newArrayList(this.defaultResourcePacks);
-
+    
         for (ResourcePackRepository.Entry resourcepackrepository$entry : this.mcResourcePackRepository.getRepositoryEntries())
         {
             list.add(resourcepackrepository$entry.getResourcePack());
         }
-
+    
         if (this.mcResourcePackRepository.getResourcePackInstance() != null)
         {
             list.add(this.mcResourcePackRepository.getResourcePackInstance());
         }
-
+    
         try
         {
             this.mcResourceManager.reloadResources(list);
@@ -808,20 +808,20 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             logger.info((String)"Caught error stitching, removing all assigned resourcepacks", (Throwable)runtimeexception);
             list.clear();
             list.addAll(this.defaultResourcePacks);
-            this.mcResourcePackRepository.setRepositories(Collections.emptyList());
+            this.mcResourcePackRepository.setRepositories(Collections.<ResourcePackRepository.Entry>emptyList()); // Updated line
             this.mcResourceManager.reloadResources(list);
             this.gameSettings.resourcePacks.clear();
             this.gameSettings.incompatibleResourcePacks.clear();
             this.gameSettings.saveOptions();
         }
-
+    
         this.mcLanguageManager.parseLanguageMetadata(list);
-
+    
         if (this.renderGlobal != null)
         {
             this.renderGlobal.loadRenderers();
         }
-    }
+    }    
 
     private ByteBuffer readImageToBuffer(InputStream imageStream) throws IOException
     {

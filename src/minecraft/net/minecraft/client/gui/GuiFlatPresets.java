@@ -173,7 +173,7 @@ public class GuiFlatPresets extends GuiScreen
         {
             for (String s : p_175354_4_)
             {
-                flatgeneratorinfo.getWorldFeatures().put(s, Maps.newHashMap());
+                flatgeneratorinfo.getWorldFeatures().put(s, Maps.<String, String>newHashMap());
             }
         }
 

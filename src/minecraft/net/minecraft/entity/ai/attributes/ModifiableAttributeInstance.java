@@ -27,12 +27,12 @@ public class ModifiableAttributeInstance implements IAttributeInstance
         this.attributeMap = attributeMapIn;
         this.genericAttribute = genericAttributeIn;
         this.baseValue = genericAttributeIn.getDefaultValue();
-
+    
         for (int i = 0; i < 3; ++i)
         {
-            this.mapByOperation.put(Integer.valueOf(i), Sets.newHashSet());
+            this.mapByOperation.put(Integer.valueOf(i), Sets.<AttributeModifier>newHashSet()); // Fixed line
         }
-    }
+    }    
 
     /**
      * Get the Attribute this is an instance of

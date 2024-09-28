@@ -3,6 +3,7 @@ package net.minecraft.network;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import net.minecraft.network.handshake.client.C00Handshake;
 import net.minecraft.network.login.client.C00PacketLoginStart;
@@ -286,10 +287,10 @@ public enum EnumConnectionState
         return (Integer)((BiMap)this.directionMaps.get(direction)).inverse().get(packetIn.getClass());
     }
 
-    public Packet getPacket(EnumPacketDirection direction, int packetId) throws InstantiationException, IllegalAccessException {
+    public Packet getPacket(EnumPacketDirection direction, int packetId) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
         Class<? extends Packet> oclass = (Class)((BiMap)this.directionMaps.get(direction)).get(Integer.valueOf(packetId));
-        return oclass == null ? null : (Packet)oclass.newInstance();
-    }
+        return oclass == null ? null : oclass.getDeclaredConstructor().newInstance();
+    }    
 
     public int getId()
     {
@@ -329,7 +330,7 @@ public enum EnumConnectionState
 
                     try
                     {
-                        oclass.newInstance();
+                        oclass.getDeclaredConstructor().newInstance();
                     }
                     catch (Throwable var10)
                     {

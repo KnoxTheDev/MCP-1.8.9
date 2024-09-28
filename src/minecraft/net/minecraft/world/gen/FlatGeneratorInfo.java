@@ -12,8 +12,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 public class FlatGeneratorInfo
 {
-    private final List<FlatLayerInfo> flatLayers = Lists.<FlatLayerInfo>newArrayList();
-    private final Map<String, Map<String, String>> worldFeatures = Maps.<String, Map<String, String>>newHashMap();
+    private final List<FlatLayerInfo> flatLayers = Lists.newArrayList();
+    private final Map<String, Map<String, String>> worldFeatures = Maps.newHashMap();
     private int biomeToUse;
 
     /**
@@ -69,8 +69,7 @@ public class FlatGeneratorInfo
             stringbuilder.append(((FlatLayerInfo)this.flatLayers.get(i)).toString());
         }
 
-        stringbuilder.append(";");
-        stringbuilder.append(this.biomeToUse);
+        stringbuilder.append(";").append(this.biomeToUse);
 
         if (!this.worldFeatures.isEmpty())
         {
@@ -84,8 +83,8 @@ public class FlatGeneratorInfo
                     stringbuilder.append(",");
                 }
 
-                stringbuilder.append(((String)entry.getKey()).toLowerCase());
-                Map<String, String> map = (Map)entry.getValue();
+                stringbuilder.append(entry.getKey().toLowerCase());
+                Map<String, String> map = entry.getValue();
 
                 if (!map.isEmpty())
                 {
@@ -99,9 +98,9 @@ public class FlatGeneratorInfo
                             stringbuilder.append(" ");
                         }
 
-                        stringbuilder.append((String)entry1.getKey());
+                        stringbuilder.append(entry1.getKey());
                         stringbuilder.append("=");
-                        stringbuilder.append((String)entry1.getValue());
+                        stringbuilder.append(entry1.getValue());
                     }
 
                     stringbuilder.append(")");
@@ -210,7 +209,7 @@ public class FlatGeneratorInfo
     {
         if (p_180716_1_ != null && p_180716_1_.length() >= 1)
         {
-            List<FlatLayerInfo> list = Lists.<FlatLayerInfo>newArrayList();
+            List<FlatLayerInfo> list = Lists.newArrayList();
             String[] astring = p_180716_1_.split(",");
             int i = 0;
 
@@ -272,7 +271,7 @@ public class FlatGeneratorInfo
                         for (String s : astring1)
                         {
                             String[] astring2 = s.split("\\(", 2);
-                            Map<String, String> map = Maps.<String, String>newHashMap();
+                            Map<String, String> map = Maps.<String, String>newHashMap(); // Specify type parameters
 
                             if (astring2[0].length() > 0)
                             {
@@ -297,7 +296,7 @@ public class FlatGeneratorInfo
                     }
                     else
                     {
-                        flatgeneratorinfo.getWorldFeatures().put("village", Maps.newHashMap());
+                        flatgeneratorinfo.getWorldFeatures().put("village", Maps.<String, String>newHashMap()); // Specify type parameters
                     }
 
                     return flatgeneratorinfo;
@@ -322,7 +321,7 @@ public class FlatGeneratorInfo
         flatgeneratorinfo.getFlatLayers().add(new FlatLayerInfo(2, Blocks.dirt));
         flatgeneratorinfo.getFlatLayers().add(new FlatLayerInfo(1, Blocks.grass));
         flatgeneratorinfo.func_82645_d();
-        flatgeneratorinfo.getWorldFeatures().put("village", Maps.newHashMap());
+        flatgeneratorinfo.getWorldFeatures().put("village", Maps.<String, String>newHashMap()); // Specify type parameters
         return flatgeneratorinfo;
     }
 }

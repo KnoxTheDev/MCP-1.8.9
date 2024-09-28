@@ -73,14 +73,13 @@ public class EntityWither extends EntityMob implements IBossDisplayData, IRanged
         this.experienceValue = 50;
     }
 
-    protected void entityInit()
-    {
+    protected void entityInit() {
         super.entityInit();
-        this.dataWatcher.addObject(17, new Integer(0));
-        this.dataWatcher.addObject(18, new Integer(0));
-        this.dataWatcher.addObject(19, new Integer(0));
-        this.dataWatcher.addObject(20, new Integer(0));
-    }
+        this.dataWatcher.addObject(17, Integer.valueOf(0)); // Updated line
+        this.dataWatcher.addObject(18, Integer.valueOf(0)); // Updated line
+        this.dataWatcher.addObject(19, Integer.valueOf(0)); // Updated line
+        this.dataWatcher.addObject(20, Integer.valueOf(0)); // Updated line
+    }    
 
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.

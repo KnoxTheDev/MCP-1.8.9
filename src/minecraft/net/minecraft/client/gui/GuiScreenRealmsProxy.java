@@ -15,8 +15,8 @@ public class GuiScreenRealmsProxy extends GuiScreen
     public GuiScreenRealmsProxy(RealmsScreen p_i1087_1_)
     {
         this.field_154330_a = p_i1087_1_;
-        super.buttonList = Collections.synchronizedList(Lists.newArrayList());
-    }
+        super.buttonList = Collections.synchronizedList(Lists.<GuiButton>newArrayList()); // Specify the type here
+    }    
 
     public RealmsScreen func_154321_a()
     {

@@ -3,6 +3,7 @@ package net.minecraft.client.resources;
 import com.google.common.collect.Sets;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileFilter; // Import the FileFilter interface
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +34,8 @@ public class FolderResourcePack extends AbstractResourcePack
 
         if (file1.isDirectory())
         {
-            for (File file2 : file1.listFiles(DirectoryFileFilter.DIRECTORY))
+            // Explicitly casting DirectoryFileFilter.DIRECTORY to FileFilter to avoid ambiguity
+            for (File file2 : file1.listFiles((FileFilter) DirectoryFileFilter.DIRECTORY))
             {
                 String s = getRelativeName(file1, file2);
 

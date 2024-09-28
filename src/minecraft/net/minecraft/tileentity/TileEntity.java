@@ -95,35 +95,27 @@ public abstract class TileEntity
     /**
      * Creates a new entity and loads its data from the specified NBT.
      */
-    public static TileEntity createAndLoadEntity(NBTTagCompound nbt)
-    {
+    public static TileEntity createAndLoadEntity(NBTTagCompound nbt) {
         TileEntity tileentity = null;
-
-        try
-        {
+    
+        try {
             Class<? extends TileEntity> oclass = (Class)nameToClassMap.get(nbt.getString("id"));
-
-            if (oclass != null)
-            {
-                tileentity = (TileEntity)oclass.newInstance();
+    
+            if (oclass != null) {
+                tileentity = oclass.getDeclaredConstructor().newInstance(); // Updated line
             }
-        }
-        catch (Exception exception)
-        {
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
-
-        if (tileentity != null)
-        {
+    
+        if (tileentity != null) {
             tileentity.readFromNBT(nbt);
-        }
-        else
-        {
+        } else {
             logger.warn("Skipping BlockEntity with id " + nbt.getString("id"));
         }
-
+    
         return tileentity;
-    }
+    }    
 
     public int getBlockMetadata()
     {

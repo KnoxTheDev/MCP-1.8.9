@@ -123,25 +123,20 @@ public class CommandSpreadPlayers extends CommandBase
         }
     }
 
-    private int func_110667_a(List<Entity> p_110667_1_)
-    {
-        Set<Team> set = Sets.<Team>newHashSet();
-
-        for (Entity entity : p_110667_1_)
-        {
-            if (entity instanceof EntityPlayer)
-            {
-                set.add(((EntityPlayer)entity).getTeam());
-            }
-            else
-            {
-                set.add((Object)null);
+    private int func_110667_a(List<Entity> p_110667_1_) {
+        Set<Team> set = Sets.newHashSet();
+    
+        for (Entity entity : p_110667_1_) {
+            if (entity instanceof EntityPlayer) {
+                set.add(((EntityPlayer) entity).getTeam());
+            } else {
+                set.add(null);  // Change made here
             }
         }
-
+        
         return set.size();
     }
-
+    
     private int func_110668_a(CommandSpreadPlayers.Position p_110668_1_, double p_110668_2_, World worldIn, Random p_110668_5_, double p_110668_6_, double p_110668_8_, double p_110668_10_, double p_110668_12_, CommandSpreadPlayers.Position[] p_110668_14_, boolean p_110668_15_) throws CommandException
     {
         boolean flag = true;
