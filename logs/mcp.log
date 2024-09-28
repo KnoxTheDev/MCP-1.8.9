@@ -1,3 +1,38 @@
 08:52:34 - == MCP 9.18 (data: 9.19, client: 1.8.9, server: 1.8.9) ==
 08:52:34 - Json file not found in /home/codespace/.minecraft/versions/1.8.9/1.8.9.json
 08:52:34 - Please run launcher & Minecraft at least once.
+09:07:36 - == MCP 9.18 (data: 9.19, client: 1.8.9, server: 1.8.9) ==
+09:07:36 - Json file not found in /home/codespace/.minecraft/versions/1.8.9/1.8.9.json
+09:07:36 - Please run launcher & Minecraft at least once.
+09:10:43 - == MCP 9.18 (data: 9.19, client: 1.8.9, server: 1.8.9) ==
+09:10:43 - OS : linux2
+09:10:43 - "scalac" is not found on the PATH.  Scala files will not be recompiled
+09:10:43 - # VERSION INFO
+09:10:43 - python: 2.7.18 (default, Jan 31 2024, 16:23:13) 
+[GCC 9.4.0]
+09:10:43 - platform: Linux-6.8.0-1014-azure-x86_64-with-Ubuntu-20.04-focal
+09:10:43 - # java: '"java" -version'
+09:10:43 - openjdk version "11.0.14.1" 2022-02-08 LTS
+OpenJDK Runtime Environment Microsoft-31205 (build 11.0.14.1+1-LTS)
+OpenJDK 64-Bit Server VM Microsoft-31205 (build 11.0.14.1+1-LTS, mixed mode)
+09:10:43 - # javac: '"javac" -version'
+09:10:43 - javac 11.0.14.1
+09:10:43 - # javac runtime: '"javac" -J-version'
+09:10:44 - openjdk version "11.0.14.1" 2022-02-08 LTS
+OpenJDK Runtime Environment Microsoft-31205 (build 11.0.14.1+1-LTS)
+OpenJDK 64-Bit Server VM Microsoft-31205 (build 11.0.14.1+1-LTS, mixed mode)
+09:10:44 - # retroguard: 'runtime/bin/retroguard.jar --version'
+09:10:44 - RetroGuard MCP v3.6.5
+based on RetroGuard v2.3.1 by Retrologic Systems - www.retrologic.com
+09:10:44 - # specialsource: 'runtime/bin/specialsource.jar --version'
+09:10:44 - SpecialSource v{something}
+09:10:44 - # mcinjector: 'runtime/bin/mcinjector.jar --version'
+09:10:44 - MCInjector v3.4 by Searge, LexManos, Fesh0r
+09:10:44 - # patch: 'patch --version'
+09:10:44 - GNU patch 2.7.6
+09:10:44 - # wine: 'wine --version'
+09:10:44 - # astyle: 'astyle --version'
+09:10:44 - # fernflower: 'runtime/bin/fernflower.jar'
+09:10:44 - Usage: java -jar fernflower.jar [-<option>=<value>]* [<source>]+ <destination>
+09:10:44 - !! Please install either wine or astyle for source cleanup !!
+09:10:44 - # found ff, ff patches, srgs, name csvs, doc csvs, param csvs, astyle config, rg, ss
