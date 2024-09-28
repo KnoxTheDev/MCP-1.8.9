@@ -1617,8 +1617,20 @@ class Commands(object):
         classpath = [os.path.join('..', p) for p in classpath]
         classpath = os.pathsep.join(classpath)
         natives = os.path.join('..', self.dirnatives)
+
+        # Specify the path to your Java 8 installation
+        java_path = "/usr/lib/jvm/java-8-openjdk-amd64/bin/java"  # Update this to your Java 8 path
+
         os.chdir(self.dirjars)
-        forkcmd = self.cmdstartclt.format(classpath=classpath, natives=natives, mainclass=mainclass, extraargs=extraargs)
+
+        # Modify the forkcmd to use the Java 8 path
+        forkcmd = '{java_path} -Xms1024M -Xmx1024M -cp "{classpath}" -Djava.library.path="{natives}" {mainclass} {extraargs}'.format(
+            java_path=java_path,
+            classpath=classpath,
+            natives=natives,
+            mainclass=mainclass,
+            extraargs=extraargs
+        )
         self.runmc(forkcmd)
 
     def runcmd(self, forkcmd, quiet=False, check_return=True, log_file=None):

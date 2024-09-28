@@ -1,0 +1,1 @@
+javac -cp "../bin/minecraft:../jars/versions/1.8.9/1.8.9.jar:../lib:../lib/*:..." ../src/minecraft/net/minecraft/client/main/Main.java
