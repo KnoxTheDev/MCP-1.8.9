@@ -3,8 +3,6 @@ import os
 import platform
 import subprocess
 import sys
-import urllib  # Import urllib for Python 2
-import urllib2  # For advanced URL handling
 
 # Global variable to determine if we should use sudo or not
 USE_SUDO = False
@@ -23,13 +21,14 @@ def check_root():
 def run_command(cmd, use_sudo=False):
     """ Run a command with optional sudo and handle errors """
     if use_sudo and platform.system() != 'Windows':
-        cmd = ['sudo'] + cmd.split()  # Ensure cmd is a list
-    else:
-        cmd = cmd.split()  # Split cmd if it's a string
+        cmd = ['sudo'] + cmd  # Prepend sudo for Linux/macOS if needed
+
     try:
-        subprocess.check_call(cmd)  # Removed shell=True for list commands
+        subprocess.check_call(cmd)  # Remove shell=True for list commands
     except subprocess.CalledProcessError as e:
         print("Error running command: {}".format(e))
+        return False  # Return False if the command fails
+    return True  # Return True if the command is successful
 
 def change_java_path():
     """ Change the Java path to Java 8 """
@@ -52,43 +51,11 @@ def change_java_path():
 def install_java_8():
     """ Install Java 8 and fix broken dependencies if needed """
     print("Attempting to install Java 8...")
-    try:
-        run_command(['apt', 'update'])  # Update package list
-        run_command(['apt', 'install', '-y', 'openjdk-8-jdk'])  # Install Java 8
-        print("Java 8 installed successfully!")
-    except Exception as e:
-        print("Error during Java installation: {}".format(e))
-        print("Attempting to fix broken installs...")
-        run_command(['apt', '--fix-broken', 'install'])  # Fix broken installs
-
-def gp_vncsession():
-    """ Run the gp-vncsession command for headless Minecraft testing """
-    confirm = raw_input("Do you want to run gp-vncsession for headless Minecraft testing? (Only for GitHub Codespaces!) (yes/no): ").strip().lower()
-    if confirm == 'yes':
-        if platform.system() == 'Windows':
-            print("This feature is not available for Windows.")
-        else:
-            run_command(['gp-vncsession'])
-        print("gp-vncsession command executed.")
-    else:
-        print("gp-vncsession skipped.")
-
-def detect_os():
-    """ Detect the user's operating system """
-    print("Operating System detected: {}".format(platform.system()))
-
-def install_mcp_toolkit():
-    """ Placeholder for MCP-related toolkit installations """
-    confirm = raw_input("Do you want to install additional MCP modding tools? (yes/no): ").strip().lower()
-    if confirm == 'yes':
-        if platform.system() == 'Windows':
-            print("Installing MCP modding tools for Windows...")
-            # Add specific commands for Windows installation
-        else:
-            print("Installing MCP modding tools for Linux/macOS...")
-            # Add specific commands for Linux/macOS installation
-    else:
-        print("Skipping MCP modding tools installation.")
+    if not run_command(['apt', 'update'], use_sudo=True):  # Update package list
+        return  # If this fails, exit the function
+    if not run_command(['apt', 'install', '-y', 'default-jre', 'openjdk-8-jdk'], use_sudo=True):  # Install Java 8
+        print("Error: Unmet dependencies while trying to install Java 8. Attempting to fix broken installs...")
+        run_command(['apt', '--fix-broken', 'install'], use_sudo=True)  # Fix broken installs
 
 def download_legacy_launcher():
     """ Download and install the LegacyLauncher using wget for Linux/macOS and PowerShell for Windows """
@@ -121,7 +88,7 @@ def download_legacy_launcher():
             # Use wget to download the file
             try:
                 print("Downloading LegacyLauncher using wget from {}".format(url))
-                run_command("wget -O {} {}".format(file_name, url))  # Use wget on Linux
+                run_command(['wget', '-O', file_name, url])  # Use wget on Linux
                 print("Download complete.")
 
                 # Verify that the file was downloaded
@@ -130,8 +97,10 @@ def download_legacy_launcher():
                     return
 
                 # Install the launcher on Linux
-                run_command("sudo dpkg -i {}".format(file_name))  # Install the .deb package
-                print("LegacyLauncher installed successfully!")
+                if run_command(['sudo', 'dpkg', '-i', file_name]):  # Install the .deb package
+                    print("LegacyLauncher installed successfully!")
+                else:
+                    print("Failed to install LegacyLauncher due to dependency issues.")
             except Exception as e:
                 print("Error during installation: {}".format(e))
         
@@ -142,7 +111,7 @@ def download_legacy_launcher():
             # Use wget to download the file
             try:
                 print("Downloading LegacyLauncher using wget from {}".format(url))
-                run_command("wget -O {} {}".format(file_name, url))  # Use wget on macOS
+                run_command(['wget', '-O', file_name, url])  # Use wget on macOS
                 print("Download complete.")
 
                 # Verify that the file was downloaded
@@ -151,7 +120,7 @@ def download_legacy_launcher():
                     return
 
                 # Install the launcher on macOS
-                run_command("sudo installer -pkg {} -target /".format(file_name))  # Install .dmg on macOS
+                run_command(['sudo', 'installer', '-pkg', file_name, '-target', '/'])  # Install .dmg on macOS
                 print("LegacyLauncher installed successfully!")
             except Exception as e:
                 print("Error during installation: {}".format(e))
@@ -161,17 +130,34 @@ def download_legacy_launcher():
     else:
         print("Skipping LegacyLauncher installation.")
 
-def install_java_8():
-    """ Install Java 8 and fix broken dependencies if needed """
-    print("Attempting to install Java 8...")
-    try:
-        run_command('apt update', use_sudo=True)  # Update package list
-        run_command('apt install -y openjdk-8-jdk', use_sudo=True)  # Install Java 8
-        print("Java 8 installed successfully!")
-    except Exception as e:
-        print("Error during Java installation: {}".format(e))
-        print("Attempting to fix broken installs...")
-        run_command('apt --fix-broken install', use_sudo=True)  # Fix broken installs
+def gp_vncsession():
+    """ Run the gp-vncsession command for headless Minecraft testing """
+    confirm = raw_input("Do you want to run gp-vncsession for headless Minecraft testing? (Only for GitHub Codespaces!) (yes/no): ").strip().lower()
+    if confirm == 'yes':
+        if platform.system() == 'Windows':
+            print("This feature is not available for Windows.")
+        else:
+            run_command(['gp-vncsession'])  # Pass command as a list
+        print("gp-vncsession command executed.")
+    else:
+        print("gp-vncsession skipped.")
+
+def detect_os():
+    """ Detect the user's operating system """
+    print("Operating System detected: {}".format(platform.system()))
+
+def install_mcp_toolkit():
+    """ Placeholder for MCP-related toolkit installations """
+    confirm = raw_input("Do you want to install additional MCP modding tools? (yes/no): ").strip().lower()
+    if confirm == 'yes':
+        if platform.system() == 'Windows':
+            print("Installing MCP modding tools for Windows...")
+            # Add specific commands for Windows installation
+        else:
+            print("Installing MCP modding tools for Linux/macOS...")
+            # Add specific commands for Linux/macOS installation
+    else:
+        print("Skipping MCP modding tools installation.")
 
 def main_menu():
     """ Main menu to interact with different features """
