@@ -19,7 +19,7 @@
 2. **Extract the Files**: Unzip the downloaded file into a directory of your choice.
 3. **For GitHub Codespaces Users**: Run start.sh with sudo perms to setup Java 8, a noVNC sever and LegacyLauncher to test Minecraft with GUI.
 
-**Note**: The .sh files don't work as Python 3 is installed at default (on COdespaces), so use commands like *python2.7 ./runtime/thescript.py*, to do things, except start.sh which is the setup file.
+**Note**: The .sh files don't work as Python 3 is installed at default (on Codespaces), so use commands like *python2.7 ./runtime/thescript.py*, to do things, except start.sh which is the setup file.
 
 ## Getting Started
 
