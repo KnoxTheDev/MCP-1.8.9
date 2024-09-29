@@ -11,6 +11,7 @@
 - **Support for Multiple Platforms**: Compatible with Windows, macOS, and Linux systems.
 - **Community-Driven**: Engage with a vibrant community of Minecraft modders for support and collaboration.
 - **Documentation and Tutorials**: Comprehensive guides to help you get started with modding.
+- **Note**: This repo was desgined to work with GitHub codespaces environments.
 
 ## Installation
 
@@ -18,7 +19,7 @@
 2. **Extract the Files**: Unzip the downloaded file into a directory of your choice.
 3. **For GitHub Codespaces Users**: Run start.sh with sudo perms to setup Java 8, a noVNC sever and LegacyLauncher to test Minecraft with GUI.
 
-**Note**: The .sh files don't work as Python 3 is installed at default, so use commands like *python2.7 ./runtime/thescript.py*, to do things, except start.sh which is the setup file.
+**Note**: The .sh files don't work as Python 3 is installed at default (on COdespaces), so use commands like *python2.7 ./runtime/thescript.py*, to do things, except start.sh which is the setup file.
 
 ## Getting Started
 
