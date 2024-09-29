@@ -16,6 +16,7 @@
 
 1. **Download MCP**: Get the latest version of MCP 1.8.9 from the [Releases](https://github.com/KnoxTheDev/MCP-1.8.9/releases) page.
 2. **Extract the Files**: Unzip the downloaded file into a directory of your choice.
+3. **For GitHub Codespaces Users**: Run start.sh with sudo perms to setup Java 8, a noVNC sever and LegacyLauncher to test Minecraft with GUI.
 
 ## Getting Started
 
